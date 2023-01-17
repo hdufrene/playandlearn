@@ -1,20 +1,53 @@
-import { StatusBar } from 'expo-status-bar';
+import React ,{useState,useEffect,useCallback} from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+  import Navigator from './routes/homeStack'
+import {useFonts} from 'expo-font'
+import * as SplashScreen from 'expo-splash-screen';
+// import * as Font  from "expo-font";
 
+//import AppLoading from 'expo-app-loading'
+
+SplashScreen.preventAutoHideAsync();
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+ //const [fontLoaded, setFontLoaded] = useState(false);
+
+
+    const [fontsLoaded]=  useFonts({
+        'HELVETICACOMP': require('./assets/fonts/Helvetica-ExtraCompressed.ttf'),
+     })
+
+     const onLayoutRootView = useCallback(async () => {
+        if (fontsLoaded) {
+          await SplashScreen.hideAsync();
+        }
+      }, [fontsLoaded]);
+  
+    if (!fontsLoaded) {
+      return null;
+    }else{
+         return  <><View  onLayout={onLayoutRootView}></View><Navigator /></>
+    }
+ 
+
+    // const [fontsLoaded] = useFonts({
+    //   'Inter-Black': require('./assets/fonts/Inter-Black.otf'),
+    // });
+  
+    // const onLayoutRootView = useCallback(async () => {
+    //   if (fontsLoaded) {
+    //     await SplashScreen.hideAsync();
+    //   }
+    // }, [fontsLoaded]);
+  
+    // if (!fontsLoaded) {
+    //   return null;
+    // }
+  
+    // return (
+    //   <View  onLayout={onLayoutRootView}>
+    //     <Text style={{ fontFamily: 'HELVETICACOMP', fontSize: 30 }}>Inter Black</Text>
+    //     <Text style={{ fontSize: 30 }}>Platform Default</Text>
+    //   </View>
+    // );
+}

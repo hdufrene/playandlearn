@@ -1,16 +1,10 @@
 {
   "expo": {
-    "name": "my-app2",
-    "slug": "my-app2",
-    "version": "1.0.0",
-    "orientation": "portrait",
+    "name": "Compta & SI",
+    "slug": "compta-si",
+    "version": "1.6.2",
     "icon": "./assets/icon.png",
-    "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
+    "orientation": "portrait",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -18,16 +12,31 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "requireFullScreen": true,
+      "bundleIdentifier": "com.essca.comptasi"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.essca.comptasi",
+      "permissions": [
+        "ACCESS_NETWORK_STATE",
+        "ACCESS_WIFI_STATE",
+        "INTERNET",
+        "STATUS_BAR"
+      ],
+      "versionCode": 12
     },
-    "web": {
-      "favicon": "./assets/favicon.png"
+    "androidNavigationBar": {
+      "visible": "immersive"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "f4e4a5af-779d-42b8-88b6-cb199323bd30"
+      }
     }
   }
 }
