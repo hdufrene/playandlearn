@@ -82,7 +82,7 @@ export default function Home({ navigation }) {
 
   return (
     <>
-      <StatusBar hidden />
+  
       <ActivityIndicator
         size="large" color="#541E06"
         style={[GlobalStyle.container, { display: isImageLoaded ? "none" : "flex", zIndex: 0 }]} />
