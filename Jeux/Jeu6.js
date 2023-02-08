@@ -39,6 +39,7 @@ export default function Jeu6({ navigation }) {
       if(!isImageLoaded){
         play.current=false
         await stopSounds()
+        await ScreenOrientation.unlockAsync()
         await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
         navigation.navigate('Univers', { idUser: navigation.getParam('idUser') })
       }else{
@@ -292,6 +293,7 @@ export default function Jeu6({ navigation }) {
           setIsImageLoaded(false)
           play.current=false
           await stopSounds()
+          await ScreenOrientation.unlockAsync()
           await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
           navigation.navigate('JeuxSI')
         }else{

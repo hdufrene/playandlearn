@@ -37,7 +37,7 @@ export default function Univers({navigation}) {
   useEffect(()=>{
 
       const orientation=async()=>{
-        //ScreenOrientation.unlockAsync()
+        await ScreenOrientation.unlockAsync()
         await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP  )
         await setScreenWidth(Dimensions.get('screen').width)
         await setScreenHeight(Dimensions.get('screen').height)

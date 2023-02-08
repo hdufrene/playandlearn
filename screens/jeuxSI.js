@@ -248,8 +248,10 @@ export default function JeuxSI({ navigation }) {
       } catch (error) {
       }
       if (numJeu == 7 || numJeu == 8 || numJeu == 9 || numJeu == 10) {
+        await ScreenOrientation.unlockAsync()
         await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
       } else {
+        await ScreenOrientation.unlockAsync()
         await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
       }
      
@@ -382,6 +384,7 @@ export default function JeuxSI({ navigation }) {
     console.log("analyse orientation")
     const current = await ScreenOrientation.getOrientationLockAsync()
     if(current !== ScreenOrientation.OrientationLock.PORTRAIT_UP && !isLoading){
+      await ScreenOrientation.unlockAsync()
       await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
     }
   }

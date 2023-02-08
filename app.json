@@ -2,9 +2,8 @@
   "expo": {
     "name": "Compta & SI",
     "slug": "compta-si",
-    "version": "1.6.7",
+    "version": "1.6.8",
     "icon": "./assets/icon.png",
-    "orientation": "portrait",
     "updates": {
       "fallbackToCacheTimeout": 0
     },
@@ -39,7 +38,7 @@
         "INTERNET",
         "STATUS_BAR"
       ],
-      "versionCode": 17
+      "versionCode": 18
     },
     "androidNavigationBar": {
       "visible": "immersive"

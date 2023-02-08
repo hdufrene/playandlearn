@@ -25,17 +25,18 @@ export default function Connexion({ navigation }) {
   const [groupes, setGroupes] = useState([])
   const connManager = new ConnexionManager()
 
-  useEffect(() => {
+  useEffect(()=>{
 
-    const orientation = async () => {
-      //ScreenOrientation.unlockAsync()
-      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
+    const orientation=async()=>{
+      await ScreenOrientation.unlockAsync()
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP  )
       await setScreenWidth(Dimensions.get('screen').width)
       await setScreenHeight(Dimensions.get('screen').height)
     }
     orientation()
 
-  }, [])
+},[])
+  
   const [nom, setNom] = useState("")
   const [prenom, setPrenom] = useState("")
   const [email, setEmail] = useState("")

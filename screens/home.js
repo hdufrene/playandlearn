@@ -29,6 +29,19 @@ export default function Home({ navigation }) {
     getData()
   }, [essca])
 
+  useEffect(()=>{
+
+    const orientation=async()=>{
+      await ScreenOrientation.unlockAsync()
+      await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP  )
+      await setScreenWidth(Dimensions.get('screen').width)
+      await setScreenHeight(Dimensions.get('screen').height)
+    }
+    orientation()
+
+},[])
+
+
   const pressHandler = async (essca) => {
     console.log('Clic : ' + essca)
     if (essca) {

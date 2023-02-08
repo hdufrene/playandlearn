@@ -37,6 +37,7 @@ export default function Jeu1({ navigation }) {
       if(!isImageLoaded){
         play.current=false
         await stopSounds()
+        await ScreenOrientation.unlockAsync()
         await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
         navigation.navigate('Univers', { idUser: navigation.getParam('idUser') })
       }else{
@@ -273,6 +274,7 @@ export default function Jeu1({ navigation }) {
           } catch (error) {
             
           }
+          await ScreenOrientation.unlockAsync()
           await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
           navigation.navigate('JeuxCompta')
         }else{
@@ -998,6 +1000,7 @@ export default function Jeu1({ navigation }) {
                 } catch (error) {
                   
                 }
+                await ScreenOrientation.unlockAsync()
                 await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
 
                 navigation.navigate('JeuxCompta')
@@ -1162,6 +1165,7 @@ export default function Jeu1({ navigation }) {
                 } catch (error) {
                   
                 }
+                await ScreenOrientation.unlockAsync()
                 await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
                 navigation.navigate('JeuxCompta')
 

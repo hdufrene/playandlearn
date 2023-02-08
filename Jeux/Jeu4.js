@@ -40,6 +40,7 @@ export default function Jeu4({ navigation }) {
       if(!isImageLoaded){
         play.current=false
         await stopSounds()
+        await ScreenOrientation.unlockAsync()
         await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
         navigation.navigate('Univers', { idUser: navigation.getParam('idUser') })
       }else{
@@ -512,6 +513,7 @@ export default function Jeu4({ navigation }) {
           setIsImageLoaded(false)
           play.current=false
           await stopSounds()
+          await ScreenOrientation.unlockAsync()
           await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
           navigation.navigate('JeuxCompta')
         }else{
@@ -1331,6 +1333,7 @@ export default function Jeu4({ navigation }) {
                 setIsImageLoaded(false)
                 await saveData()
                 await stopSounds()
+                await ScreenOrientation.unlockAsync()
                 await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
 
                 navigation.navigate('JeuxCompta')
@@ -1485,6 +1488,7 @@ export default function Jeu4({ navigation }) {
                 setIsImageLoaded(false)
                 await saveData()
                 await stopSounds()
+                await ScreenOrientation.unlockAsync()
                 await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
 
                 navigation.navigate('JeuxCompta')

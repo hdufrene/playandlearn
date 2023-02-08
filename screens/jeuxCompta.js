@@ -83,6 +83,7 @@ export default function JeuxCompta({ navigation }) {
     console.log("analyse orientation")
     const current = await ScreenOrientation.getOrientationLockAsync()
     if(current !== ScreenOrientation.OrientationLock.PORTRAIT_UP && !isLoading){
+      await ScreenOrientation.unlockAsync()
       await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
     }
   }
@@ -139,8 +140,10 @@ export default function JeuxCompta({ navigation }) {
       } catch (error) {
       }
       if (numJeu == 2 || numJeu == 3 || numJeu == 5) {
+        await ScreenOrientation.unlockAsync()
         await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.LANDSCAPE)
       } else {
+        await ScreenOrientation.unlockAsync()
         await ScreenOrientation.lockAsync(ScreenOrientation.OrientationLock.PORTRAIT_UP)
       }
       setTimeout(() => {
